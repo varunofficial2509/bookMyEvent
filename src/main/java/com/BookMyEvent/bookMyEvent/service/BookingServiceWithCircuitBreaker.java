@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class BookingCBService {
+public class BookingServiceWithCircuitBreaker {
 
     @Autowired
     private BookingService bookingService;

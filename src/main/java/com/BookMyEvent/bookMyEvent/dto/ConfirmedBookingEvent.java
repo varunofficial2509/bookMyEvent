@@ -1,13 +1,10 @@
-package com.BookMyEvent.bookMyEvent.model;
+package com.BookMyEvent.bookMyEvent.dto;
 
-import com.BookMyEvent.bookMyEvent.dto.BookingDTO;
-import com.BookMyEvent.bookMyEvent.service.BookingService;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 
 @Getter

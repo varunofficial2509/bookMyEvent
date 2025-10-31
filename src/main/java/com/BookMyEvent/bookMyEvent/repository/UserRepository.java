@@ -18,4 +18,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query("SELECT b FROM Booking b WHERE b.user.id = :userId")
     List<Booking> findUserBookingsByUserId(@Param("userId")Long userId);
+
+    public User findByUserName(String username);
 }

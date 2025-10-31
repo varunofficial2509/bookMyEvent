@@ -16,7 +16,7 @@ public class ShowService {
     private ShowRepository showRepository;
 
     @Cacheable(value = "showsByEventNameAndLocation", key = "#eventName + ':' + #cityLocation")
-    public List<ShowDTO> findAllMovieShows(String eventName, String cityLocation) {
+    public List<ShowDTO> findAllEventShows(String eventName, String cityLocation) {
         return showRepository.findShowsByEventAndCity(eventName,cityLocation).stream().map(ShowDTO::new).collect(Collectors.toList());
     }
 }

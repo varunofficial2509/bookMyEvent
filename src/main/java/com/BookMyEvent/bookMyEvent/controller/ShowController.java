@@ -21,7 +21,7 @@ public class ShowController {
     }
 
     @GetMapping("/shows")
-    public List<ShowDTO> getAllMovieShows(@RequestParam("movie") String movieTitle, @RequestParam("location") String location){
-        return showService.findAllMovieShows(movieTitle,location);
+    public List<ShowDTO> getAllEvents(@RequestParam("event") String movieTitle, @RequestParam("location") String location){
+        return showService.findAllEventShows(movieTitle,location);
     }
 }

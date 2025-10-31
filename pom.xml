@@ -11,7 +11,8 @@
 	<groupId>com.BookMyEvent</groupId>
 	<artifactId>bookMyEvent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>bookMyEvent</name>
+    <packaging>pom</packaging>
+    <name>bookMyEvent</name>
 	<description>Book My Event </description>
 	<url/>
 	<licenses>
@@ -20,7 +21,10 @@
 	<developers>
 		<developer/>
 	</developers>
-	<scm>
+    <modules>
+        <module>emailService</module>
+    </modules>
+    <scm>
 		<connection/>
 		<developerConnection/>
 		<tag/>

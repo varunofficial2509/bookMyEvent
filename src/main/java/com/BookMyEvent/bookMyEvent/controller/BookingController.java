@@ -6,6 +6,7 @@ import com.BookMyEvent.bookMyEvent.dto.IndoorBookingRequestDTO;
 import com.BookMyEvent.bookMyEvent.dto.OutdoorBookingRequestDTO;
 import com.BookMyEvent.bookMyEvent.exception.BookingException;
 import com.BookMyEvent.bookMyEvent.service.BookingService;
+import com.BookMyEvent.bookMyEvent.service.BookingServiceWithCircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,17 +18,17 @@ import java.util.List;
 @RequestMapping("/api/bookings")
 public class BookingController {
 
-    private final BookingService bookingService;
+    private final BookingServiceWithCircuitBreaker bookingServiceWithCB;
 
     @Autowired
-    public BookingController(BookingService bookingService) {
-        this.bookingService = bookingService;
+    public BookingController(BookingServiceWithCircuitBreaker bookingServiceWithCB) {
+        this.bookingServiceWithCB = bookingServiceWithCB;
     }
 
     @PostMapping("/indoor")
     public ResponseEntity<BookingDTO> bookIndoorEvent(@RequestBody IndoorBookingRequestDTO request) {
         try {
-            BookingDTO booking = bookingService.bookIndoorEvent(
+            BookingDTO booking = bookingServiceWithCB.bookIndoorEvent(
                     request.getUserId(),
                     request.getShowId(),
                     request.getSeatIds()
@@ -41,7 +42,7 @@ public class BookingController {
     @PostMapping("/outdoor")
     public ResponseEntity<BookingDTO> bookOutdoorEvent(@RequestBody OutdoorBookingRequestDTO request) {
         try {
-            BookingDTO booking = bookingService.bookOutdoorEvent(
+            BookingDTO booking = bookingServiceWithCB.bookOutdoorEvent(
                     request.getUserId(),
                     request.getEventId(),
                     request.getTicketCategoryQuantities()

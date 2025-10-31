@@ -1,7 +1,7 @@
 package com.BookMyEvent.bookMyEvent.service;
 
 import com.BookMyEvent.bookMyEvent.dto.BookingDTO;
-import com.BookMyEvent.bookMyEvent.model.ConfirmedBookingEvent;
+import com.BookMyEvent.bookMyEvent.dto.ConfirmedBookingEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
