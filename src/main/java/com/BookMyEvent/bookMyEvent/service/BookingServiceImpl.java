@@ -2,6 +2,7 @@ package com.BookMyEvent.bookMyEvent.service;
 
 
 import com.BookMyEvent.bookMyEvent.dto.BookingDTO;
+import com.BookMyEvent.bookMyEvent.dto.TicketDTO;
 import com.BookMyEvent.bookMyEvent.entity.*;
 import com.BookMyEvent.bookMyEvent.exception.*;
 import com.BookMyEvent.bookMyEvent.model.BookingStatus;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -268,13 +270,13 @@ public class BookingServiceImpl {
 
     private BookingDTO convertToDTO(Booking booking) {
         BookingDTO dto = new BookingDTO();
-        dto.setId(booking.getId());
-        dto.setBookingReference(booking.getBookingReference());
+        dto.setBookingId(booking.getId());
+        dto.setBookingReferenceId(booking.getBookingReference());
         dto.setUserId(booking.getUser().getId());
         dto.setEventId(booking.getEvent().getId());
         dto.setEventName(booking.getEvent().getName());
         dto.setShowId(booking.getShow() != null ? booking.getShow().getId() : null);
-        dto.setNumberOfTickets(booking.getNumberOfTickets());
+        dto.set(booking.getNumberOfTickets());
         dto.setTotalAmount(booking.getTotalAmount());
         dto.setStatus(booking.getStatus());
         dto.setBookingDate(booking.getBookingDate());
