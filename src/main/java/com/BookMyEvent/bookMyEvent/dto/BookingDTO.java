@@ -1,6 +1,7 @@
 package com.BookMyEvent.bookMyEvent.dto;
 
 import com.BookMyEvent.bookMyEvent.entity.Booking;
+import com.BookMyEvent.bookMyEvent.entity.Seat;
 import com.BookMyEvent.bookMyEvent.entity.Ticket;
 import lombok.*;
 
@@ -33,6 +34,8 @@ public class BookingDTO implements Serializable {
     private String cityName;
     private LocalDateTime bookingTime;
     private List<String> seatNumbers;
+    private List<TicketDTO> tickets;
+    private List<Long> seatIds;
 
     // Optional constructor for lightweight projection queries
     public BookingDTO(Long bookingId,
@@ -82,6 +85,14 @@ public class BookingDTO implements Serializable {
         this.seatNumbers = booking.getTickets().stream()
                 .filter(ticket -> ticket.getSeat() != null)
                 .map(ticket -> ticket.getSeat().getSeatNumber())
+                .collect(Collectors.toList());
+        this.seatIds = booking.getTickets().stream()
+                .filter(ticket -> ticket.getSeat() != null)
+                .map(ticket -> ticket.getSeat().getId())
+                .collect(Collectors.toList());
+        // Map tickets to TicketDTO
+        this.tickets = booking.getTickets().stream()
+                .map(TicketDTO::new) // or use your convertTicketToDTO method
                 .collect(Collectors.toList());
     }
 

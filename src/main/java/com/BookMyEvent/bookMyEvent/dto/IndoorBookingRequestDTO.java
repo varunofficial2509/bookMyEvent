@@ -15,6 +15,4 @@ public class IndoorBookingRequestDTO {
     private Long userId;
     private Long showId;
     private List<Long> seatIds;
-
-    // Getters and setters
 }

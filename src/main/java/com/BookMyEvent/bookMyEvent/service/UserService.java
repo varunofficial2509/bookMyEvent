@@ -2,11 +2,8 @@ package com.BookMyEvent.bookMyEvent.service;
 
 
 import com.BookMyEvent.bookMyEvent.dto.BookingDTO;
-import com.BookMyEvent.bookMyEvent.dto.ShowDTO;
-import com.BookMyEvent.bookMyEvent.entity.Booking;
 import com.BookMyEvent.bookMyEvent.entity.User;
 import com.BookMyEvent.bookMyEvent.repository.UserRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -17,13 +14,13 @@ import java.util.stream.Collectors;
 import static java.util.Arrays.stream;
 
 @Service
-public class UserServiceImpl {
+public class UserService {
 
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder encoder;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
         this.encoder = new BCryptPasswordEncoder(12);
     }

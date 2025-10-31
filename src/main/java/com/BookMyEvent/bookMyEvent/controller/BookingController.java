@@ -5,7 +5,7 @@ import com.BookMyEvent.bookMyEvent.dto.ErrorResponseDTO;
 import com.BookMyEvent.bookMyEvent.dto.IndoorBookingRequestDTO;
 import com.BookMyEvent.bookMyEvent.dto.OutdoorBookingRequestDTO;
 import com.BookMyEvent.bookMyEvent.exception.BookingException;
-import com.BookMyEvent.bookMyEvent.service.BookingServiceImpl;
+import com.BookMyEvent.bookMyEvent.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,10 +17,10 @@ import java.util.List;
 @RequestMapping("/api/bookings")
 public class BookingController {
 
-    private final BookingServiceImpl bookingService;
+    private final BookingService bookingService;
 
     @Autowired
-    public BookingController(BookingServiceImpl bookingService) {
+    public BookingController(BookingService bookingService) {
         this.bookingService = bookingService;
     }
 

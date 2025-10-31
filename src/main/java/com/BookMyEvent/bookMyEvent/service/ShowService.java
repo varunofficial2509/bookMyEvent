@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class ShowServiceImpl {
+public class ShowService {
 
     @Autowired
     private ShowRepository showRepository;
